@@ -1,0 +1,122 @@
+/* General styles */
+* {
+    font-family: 'Rethink Sans', sans-serif;
+    font-size: 17px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    background-color: rgb(69,69,69);
+    color: #fff;
+    padding: 0px 0;
+}
+
+/* Top bar styles */
+#top {
+    font-size: 20px;
+    padding: 0.5em;
+    background-color: rgb(29,29,31);
+}
+
+/* Logo styles */
+#logo a {
+    font-weight: bold;
+    font-size: 17px;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5em 1em;
+}
+
+/* Navigation menu styles */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(69,69,69);
+    text-align: center;
+    position: relative;
+}
+
+nav ul li {
+    position: relative;
+    display: inline-block;
+}
+
+/* Main menu links */
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 12px 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover effect for main menu links */
+nav ul li a:hover {
+    background-color: #555;
+    color: #cacaca;
+}
+
+/* Dropdown menu */
+nav ul li ul {
+    display: none;
+    position: absolute;
+    background-color: rgb(69,69,69);
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 160px;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    animation: fadeIn 300ms ease-out;
+    min-width: 100%;
+}
+
+/* Show dropdown menu on hover */
+nav ul li:hover > ul {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Dropdown menu items */
+nav ul ul li {
+    display: block;
+}
+
+/* Dropdown menu links */
+nav ul ul li a {
+    padding: 12px;
+    color: #fff;
+    background-color: rgb(69,69,69);
+    border-bottom: 1px solid #444;
+}
+
+/* Hover effect for dropdown menu links */
+nav ul ul li a:hover {
+    background-color: #555;
+}
+
+/* Last item in the dropdown menu */
+nav ul ul li:last-child a {
+    border-bottom: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

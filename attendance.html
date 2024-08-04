@@ -4,18 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attendance Calculator</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Rethink Sans' rel='stylesheet'>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/nav-style.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="attendance.html">Attendance Calculator</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <ul>
+                <li id="logo">
+                    <a href="index.html">cC</a>
+                </li>
+                <li>
+                    <a href="#">maintain75+</a>
+                    <ul>
+                        <li class="colleges"><a href="attendance.html">Amrita University</a></li>
+                        <li class="colleges"><a href="#">SNU University</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">cgpaEstimator</a>
+                </li>
+            </ul>
+        </nav>
 
+        <nav id="top">
+            The College Essential
+        </nav>
+    </header>
+        
     <div id="attendance">
-        <h2>Attendance Calculator</h2>
+        <h2 id="heading">Attendance Calculator</h2>
         <form id="attendanceForm">
             <label for="classesAttended">Number of classes attended:</label>
             <input type="number" id="classesAttended" name="classesAttended" required>
