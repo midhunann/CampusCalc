@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Calculator</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="attendance.html">Attendance Calculator</a></li>
+        </ul>
+    </nav>
+
+    <div id="attendance">
+        <h2>Attendance Calculator</h2>
+        <form id="attendanceForm">
+            <label for="classesAttended">Number of classes attended:</label>
+            <input type="number" id="classesAttended" name="classesAttended" required>
+            
+            <label for="totalClasses">Total number of classes:</label>
+            <input type="number" id="totalClasses" name="totalClasses" required>
+            
+            <button type="submit">Calculate</button>
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>
