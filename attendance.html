@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attendance Calculator</title>
-    <link href='https://fonts.googleapis.com/css?family=Rethink Sans' rel='stylesheet'>
+    <title>Attendance Calculator - campusCalc</title>
+    <link href='https://fonts.googleapis.com/css?family=Inter:400,500,600,700&display=swap' rel='stylesheet'>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/nav-style.css">
 </head>
@@ -12,37 +12,64 @@
     <header>
         <nav>
             <ul>
-                <li id="logo">
-                    <a href="index.html">cC</a>
-                </li>
-                <li>
-                    <a href="attendance.html">maintain75+</a>
-                    
-                </li>
-                <li>
-                    <a href="cgpa.html">cgpaEstimator</a>
-                </li>
+                <li id="logo"><a href="index.html">cC</a></li>
+                <li><a href="attendance.html">maintain75+</a></li>
+                <li><a href="cgpa.html">cgpaEstimator</a></li>
             </ul>
         </nav>
-
-        <nav id="top">
-            The College Essential
-        </nav>
+        <nav id="top">The College Essential</nav>
     </header>
-        
-    <div id="attendance">
-        <h2 id="heading">Attendance Calculator</h2>
-        <form id="attendanceForm">
-            <label for="classesAttended">Number of classes attended:</label>
-            <input type="number" id="classesAttended" name="classesAttended" required>
-            
-            <label for="totalClasses">Total number of classes:</label>
-            <input type="number" id="totalClasses" name="totalClasses" required>
-            
-            <button type="submit">Calculate</button>
-        </form>
-        <p id="result"></p>
-    </div>
+    
+    <main class="calculator-page">
+        <section class="page-header">
+            <h1 class="animate-text">Attendance Calculator</h1>
+            <p class="animate-text delay-1">Track and maintain your 75% attendance requirement</p>
+        </section>
+
+        <section class="calculator-container">
+            <div class="form-wrapper">
+                <form id="attendanceForm" class="animated-form">
+                    <div class="input-group">
+                        <label for="classesAttended">Classes Attended</label>
+                        <input type="number" 
+                               id="classesAttended" 
+                               name="classesAttended" 
+                               required 
+                               min="0"
+                               placeholder="Enter number of classes attended">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="totalClasses">Total Classes</label>
+                        <input type="number" 
+                               id="totalClasses" 
+                               name="totalClasses" 
+                               required 
+                               min="1"
+                               placeholder="Enter total number of classes">
+                    </div>
+                    
+                    <button type="submit" class="calculate-btn">
+                        Calculate Attendance
+                    </button>
+                </form>
+            </div>
+
+            <div class="result-container">
+                <div class="result-card">
+                    <div class="result-header">Current Status</div>
+                    <div id="result" class="result-content"></div>
+                    <div class="attendance-meter">
+                        <div id="attendance-progress" class="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 campusCalc. All rights reserved.</p>
+    </footer>
 
     <script src="scripts/script.js"></script>
 </body>

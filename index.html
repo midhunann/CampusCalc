@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>campusCalc</title>
-    <link href='https://fonts.googleapis.com/css?family=Rethink Sans' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Inter:400,500,600,700&display=swap' rel='stylesheet'>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/nav-style.css">
 </head>
@@ -15,48 +15,50 @@
                 <li id="logo">
                     <a href="index.html">cC</a>
                 </li>
-                <li>
-                    <a href="attendance.html">maintain75+</a>
-                    
-                </li>
-                <li>
-                    <a href="cgpa.html">cgpaEstimator</a>
-                </li>
+                <li><a href="attendance.html">maintain75+</a></li>
+                <li><a href="cgpa.html">cgpaEstimator</a></li>
             </ul>
         </nav>
-
-        <nav id="top">
-            The College Essential
-        </nav>
+        <nav id="top">The College Essential</nav>
     </header>
     
     <main id="home">
-        <section id="intro">
-            <h1>Welcome to campusCalc!</h1>
-            <p>This website is designed to assist college students in tracking their academic performance efficiently. Our tools include an attendance calculator and a CGPA estimator, tailored to meet the needs of students from various universities.</p>
-        </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="animate-text">Welcome to campusCalc</h1>
+                <p class="animate-text delay-1">Your Academic Companion</p>
+                <div class="hero-animation">
+                    <div class="calc-animation"></div>
+                </div>
+            </div>
         </section>
-        
-        <!-- <section id="features">
-            <h2>Features</h2>
-            <ul>
-                <li><strong>Maintain75+:</strong> Calculate your attendance percentage and find out how many more classes you can miss or need to attend to maintain a 75% attendance rate.</li>
-                <li><strong>CGPA Estimator:</strong> Compute your Cumulative Grade Point Average (CGPA) based on your grades and credit hours.</li>
-                <li><strong>University-Specific:</strong> Currently supports Amrita University with plans to add more institutions based on user feedback.</li>
-            </ul>
-        </section>
-        
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Created by <strong>Midhunan</strong> and <strong>Hemanth</strong>, college students committed to developing tools that simplify academic tracking for their peers.</p>
-        </section>
-        
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>If you have any questions or suggestions, please <a href="contact.html">reach out to us</a>. We welcome your feedback!</p>
-        </section>
-    </main> -->
 
+        <section class="features">
+            <div class="feature-card attendance-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" class="feature-svg">
+                        <path d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm0 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm.5-18h-1v8.293l5.146 5.147.708-.708L12.5 12z"/>
+                    </svg>
+                </div>
+                <h2>Attendance Calculator</h2>
+                <p>Stay on track with your attendance goals. Calculate how many classes you can miss or need to attend to maintain the required 75% attendance.</p>
+                <a href="attendance.html" class="card-link">Calculate Attendance →</a>
+            </div>
+
+            <div class="feature-card cgpa-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" class="feature-svg">
+                        <path d="M21 3h-7.5L12 1.5 10.5 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h7.5L12 6.5 13.5 5H21v14z"/>
+                        <path d="M12 6.8l-1.2 3.6H7l3.1 2.3-1.2 3.6L12 14l3.1 2.3-1.2-3.6 3.1-2.3h-3.8z"/>
+                    </svg>
+                </div>
+                <h2>CGPA Estimator</h2>
+                <p>Plan your academic goals with our CGPA calculator. Input your grades and credits to estimate your Cumulative Grade Point Average.</p>
+                <a href="cgpa.html" class="card-link">Calculate CGPA →</a>
+            </div>
+        </section>
+    </main>
+    
     <footer>
         <p>&copy; 2024 campusCalc. All rights reserved.</p>
     </footer>

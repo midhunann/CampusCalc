@@ -1,168 +1,375 @@
+/* Base styles */
+:root {
+    --primary-bg: #000000;
+    --secondary-bg: #1d1d1f;
+    --card-bg: #1d1d1f;
+    --text-primary: #f5f5f7;
+    --text-secondary: #86868b;
+    --accent-color: #2997ff;
+    --hover-color: #0071e3;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    font-family: 'Rethink Sans', sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    line-height: 1.5;
 }
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 1em 0;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
+/* Hero Section */
+.hero {
+    min-height: 80vh;
     display: flex;
+    align-items: center;
     justify-content: center;
-}
-
-nav ul li {
-    margin: 0 1em;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-#top {
     text-align: center;
-    font-size: 1.2em;
-    margin-top: 0.5em;
+    background: linear-gradient(180deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+    padding: 2rem;
 }
 
-#home, #attendance {
-    background-color: #000;
-    color: white;
-    padding: 2em;
-    margin: 0;
+.hero-content {
+    max-width: 800px;
 }
 
-h1, h2 {
-    color: #ffffff;
-    transition: color 0.3s;
-    text-align: center;
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #2997ff, #7cc2ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
-h1:hover, h2:hover {
-    color: #007BFF;
+.hero p {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
 }
 
-#intro {
-    text-align: center;
-    margin-bottom: 2em;
-}
-/* styling for the attendance form */
-#heading{
-    margin-bottom: 1em;
-}
-#attendanceForm{
-    display: flex;
-    flex-direction: column;
-    max-width: 400px; /* Increased width for better layout */
-    margin: auto;
-    background-color: #333;
-    padding: 1em;
-    border-radius: 10px;
-}
-
-
-
-/* styling for the cgpa form */
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 800px; /* Increased width for better layout */
-    margin: auto;
-    background-color: #333;
-    padding: 1em;
-    border-radius: 10px;
-}
-
-.form-grid {
+/* Feature Cards */
+.features {
     display: grid;
-    grid-template-columns: 3fr 1fr 1fr 1fr; /* Adjust column widths */
-    gap: 1em;
-    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.form-group {
-    display: flex;
-    align-items: center;
+.feature-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    position: relative;
+    overflow: hidden;
 }
 
-.header {
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    margin-bottom: 1em;
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+    transform: scaleX(0);
+    transition: transform var(--transition-speed);
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1.5rem;
+}
+
+.feature-svg {
+    fill: var(--accent-color);
+    transition: fill var(--transition-speed);
+}
+
+.feature-card:hover .feature-svg {
+    fill: var(--hover-color);
+}
+
+.feature-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.card-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-speed);
+    display: inline-block;
+}
+
+.card-link:hover {
+    color: var(--hover-color);
+}
+
+/* Animations */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-text {
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+    }
+}
+
+/* Form Styling */
+.calculator-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--secondary-bg);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 input, select {
-    padding: 0.8em;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    background-color: #444;
-    color: white;
-    width: 100%;
-    height: 2em;
-    margin-bottom: 1em;
-
+    background: var(--primary-bg);
+    border: 1px solid #333;
+    color: var(--text-primary);
+    padding: 0.8rem;
+    border-radius: 8px;
+    transition: border-color var(--transition-speed);
 }
 
-
+input:focus, select:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
 
 button {
-    background-color: #D5E3EF;
-    color: #3b3c3c;
+    background: var(--accent-color);
+    color: white;
     border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background var(--transition-speed);
     cursor: pointer;
-    padding: 0.5em 1em;
-    border-radius: 5px;
-    margin: 0.5em;
 }
 
 button:hover {
-    background-color: #6Da5c0;
+    background: var(--hover-color);
 }
 
-/* Styling for remove cross */
-.remove-cross {
-    cursor: pointer;
-    color: #3C3D37;
-    font-size: 1.2em;
-    transition: color 0.3s;
+/* Calculator Page Specific Styles */
+.calculator-page {
+    min-height: calc(100vh - 160px);
+    padding: 2rem;
+    background: linear-gradient(180deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
 }
 
-.remove-cross:hover {
-    color: #ECDFCC;
-}
-
-/* Hide template elements */
-.hidden {
-    display: none;
-}
-
-/* Spacing for buttons outside the form */
-.form-buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 1em;
-}
-
-#result {
+.page-header {
     text-align: center;
-    padding: 1em;
-    margin: 2em auto;
-    max-width: 800px;
-    background-color: #444;
-    border-radius: 10px;
+    margin-bottom: 3rem;
 }
 
-#cgpaOutput {
-    font-size: 1.5em;
-    color: #008080;
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #2997ff, #7cc2ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.page-header p {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+}
+
+/* Form Styling */
+.form-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.animated-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all var(--transition-speed);
+}
+
+.input-group input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(41, 151, 255, 0.1);
+}
+
+.calculate-btn {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.calculate-btn:hover {
+    background: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+/* Result Styling */
+.result-container {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.result-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.result-header {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.result-content {
+    transition: all var(--transition-speed);
+}
+
+.status {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.status.good { color: #00c853; }
+.status.warning { color: #ffd600; }
+.status.critical { color: #ff3d00; }
+
+.detail {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.percentage {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.attendance-meter {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin-top: 2rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: var(--accent-color);
+    transition: width 1s ease-in-out, background-color 0.5s;
+}
+
+/* Error State */
+.error {
+    color: #ff3d00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .calculator-page {
+        padding: 1rem;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .page-header p {
+        font-size: 1rem;
+    }
+
+    .result-card {
+        padding: 1.5rem;
+    }
 }
