@@ -1,122 +1,108 @@
-/* General styles */
+/* Global Reset and Base Styles */
 * {
-    font-family: 'Rethink Sans', sans-serif;
-    font-size: 17px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
-/* Header styles */
+/* Header Styles */
 header {
-    text-align: center;
-    background-color: rgb(69,69,69);
-    color: #fff;
-    padding: 0px 0;
+    background-color: rgba(29, 29, 31, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Top bar styles */
-#top {
-    font-size: 20px;
-    padding: 0.5em;
-    background-color: rgb(29,29,31);
-}
-
-/* Logo styles */
-#logo a {
-    font-weight: bold;
-    font-size: 17px;
-    color: #fff;
-    text-decoration: none;
-    padding: 0.5em 1em;
-}
-
-/* Navigation menu styles */
+/* Navigation Base */
 nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
     list-style: none;
-    margin: 0;
-    padding: 0;
-    background-color: rgb(69,69,69);
-    text-align: center;
-    position: relative;
 }
 
-nav ul li {
-    position: relative;
-    display: inline-block;
-}
-
-/* Main menu links */
-nav ul li a {
-    color: #fff;
+/* Logo Styling */
+#logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f5f5f7;
     text-decoration: none;
-    display: block;
-    padding: 12px 20px;
-    transition: background-color 0.3s, color 0.3s;
+    transition: color 0.3s ease;
 }
 
-/* Hover effect for main menu links */
+#logo a:hover {
+    color: #2997ff;
+}
+
+/* Navigation Links */
+nav ul li a {
+    color: #86868b;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
 nav ul li a:hover {
-    background-color: #555;
-    color: #cacaca;
+    color: #f5f5f7;
 }
 
-/* Dropdown menu */
-nav ul li ul {
-    display: none;
-    position: absolute;
-    background-color: rgb(69,69,69);
-    padding: 0;
-    margin: 0;
-    border-radius: 5px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    min-width: 160px;
-    top: 100%;
-    left: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    animation: fadeIn 300ms ease-out;
-    min-width: 100%;
+/* Active Link Styling */
+nav ul li a.active {
+    color: #2997ff;
+    background-color: rgba(41, 151, 255, 0.1);
 }
 
-/* Show dropdown menu on hover */
-nav ul li:hover > ul {
-    display: block;
-    opacity: 1;
-    visibility: visible;
+/* Top Navigation Styles */
+#top:hover{
+    color: #2997ff;
+
+}
+#top {
+    background-color: rgba(29, 29, 31, 0.8);
+    color: #86868b;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
 }
 
-/* Dropdown menu items */
-nav ul ul li {
-    display: block;
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
 }
 
-/* Dropdown menu links */
-nav ul ul li a {
-    padding: 12px;
-    color: #fff;
-    background-color: rgb(69,69,69);
-    border-bottom: 1px solid #444;
-}
-
-/* Hover effect for dropdown menu links */
-nav ul ul li a:hover {
-    background-color: #555;
-}
-
-/* Last item in the dropdown menu */
-nav ul ul li:last-child a {
-    border-bottom: none;
-}
-
-@keyframes fadeIn {
+/* Subtle Animations */
+@keyframes navLinkFade {
     from {
         opacity: 0;
-        transform: translateY(-5px);
+        transform: translateY(-10px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
+nav ul li {
+    animation: navLinkFade 0.5s ease forwards;
+    opacity: 0;
+}
+
+nav ul li:nth-child(1) { animation-delay: 0.1s; }
+nav ul li:nth-child(2) { animation-delay: 0.2s; }
+nav ul li:nth-child(3) { animation-delay: 0.3s; }
