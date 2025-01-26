@@ -373,3 +373,268 @@ button:hover {
         padding: 1.5rem;
     }
 }
+
+/* CGPA Calculator Specific Styles */
+.calculator-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 250px 1fr;
+}
+
+/* Grading Scale Card */
+.grading-scale-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+}
+
+.grading-scale-card h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.grade-table {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.grade-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: background var(--transition-speed);
+}
+
+.grade-row:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.grade-row.header {
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+/* Form Styling */
+.input-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 1rem;
+    align-items: end;
+}
+
+.subject-entry {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    transition: all var(--transition-speed);
+}
+
+.subject-entry:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.input-group input,
+.input-group select {
+    padding: 0.8rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--text-primary);
+    transition: all var(--transition-speed);
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(41, 151, 255, 0.1);
+}
+
+/* Buttons */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.action-btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.add-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.add-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.calculate-btn {
+    background: var(--accent-color);
+    color: white;
+}
+
+.calculate-btn:hover {
+    background: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+.remove-btn {
+    background: transparent;
+    color: var(--text-secondary);
+    border: none;
+    font-size: 1.5rem;
+}
+.remove-btn-container {
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+}
+
+.remove-btn {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff3d00;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.remove-btn:hover {
+    background: rgba(255, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+/* CGPA Meter */
+.cgpa-meter {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    margin: 2rem auto 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 100px 100px 0 0;
+    overflow: hidden;
+}
+
+.meter-scale {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right, 
+        #ff3d00 0%, 
+        #ff9100 33%, 
+        #ffd600 66%, 
+        #00c853 100%
+    );
+    opacity: 0.2;
+}
+
+.meter-pointer {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 10px;
+    height: 100px;
+    background-color: #ff3d00;
+    transform-origin: bottom center;
+    transform: rotate(-90deg);
+    transition: transform 1s, background-color 0.5s;
+}
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff3d00;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    z-index: 1000;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.toast.show {
+    bottom: 20px;
+    opacity: 1;
+}
+
+/* Result Styling */
+.cgpa-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.cgpa-label {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.credits-info {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .calculator-container {
+        grid-template-columns: 1fr;
+    }
+
+    .grading-scale-card {
+        position: static;
+        margin-bottom: 2rem;
+    }
+
+    .input-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .cgpa-meter {
+        width: 150px;
+    }
+
+    .cgpa-value {
+        font-size: 2.5rem;
+    }
+}
